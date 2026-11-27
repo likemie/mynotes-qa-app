@@ -21,10 +21,10 @@ export interface StorageUsageStats {
 }
 
 const COLLECTION = process.env.FIRESTORE_COLLECTION || 'qa_conversations';
-export const MAX_STORED_CONVERSATIONS = Number(process.env.FIRESTORE_MAX_CONVERSATIONS || 200);
-// Hard ceiling at 500 MiB (50% of Firestore's 1 GiB Always Free tier) to leave wide safety margin.
+export const MAX_STORED_CONVERSATIONS = Number(process.env.FIRESTORE_MAX_CONVERSATIONS || 500);
+// Hard ceiling at 900 MiB (~88% of Firestore's 1 GiB Always Free tier), leaving ~124 MiB for index overhead.
 export const MAX_TOTAL_STORAGE_BYTES = Number(
-  process.env.FIRESTORE_MAX_BYTES || 500 * 1024 * 1024,
+  process.env.FIRESTORE_MAX_BYTES || 900 * 1024 * 1024,
 );
 // Keep individual Firestore documents well under Firestore's 1 MiB document limit.
 const MAX_SINGLE_DOC_BYTES = 700 * 1024;

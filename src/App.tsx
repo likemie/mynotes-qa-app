@@ -641,7 +641,7 @@ export default function App() {
                 className={`badge ${persistenceMode === 'firestore' ? 'ok' : 'warn'}`}
                 title={
                   persistenceMode === 'firestore'
-                    ? '对话已保存至 Google Cloud Firestore（跨设备同步，总容量自动限制在 500 MB 以内）'
+                    ? '对话已保存至 Google Cloud Firestore（跨设备同步，总容量自动限制在 900 MB 以内）'
                     : '当前保存于浏览器本地存储（开启 Firestore 后自动跨设备同步）'
                 }
               >
